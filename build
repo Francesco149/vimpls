@@ -1,0 +1,19 @@
+#!/bin/sh
+
+dir="`dirname "$0"`"
+. "$dir"/cflags
+abspath=`realpath "$dir"`
+exename=`basename "$abspath"`
+olddir="$(pwd)"
+cd $abspath
+dietbin=${DIETBIN:-~/3src/dietlibc/bin-x86_64/diet}
+if [ -f "$dietbin" ]; then
+  cflags="$cflags -D__u64=uint64_t"
+else
+  dietbin=""
+fi
+$dietbin $cc $cflags "$@" "$exename.c" $ldflags -o $exename
+res=$?
+cd $olddir
+exit $res
+
