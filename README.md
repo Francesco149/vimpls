@@ -4,6 +4,8 @@ even if you somehow lost access to the terminal it was running on
 
 this is only for linux and unix-like OSes that have TIOCSTI
 
+![](https://i.imgur.com/QpUZLs1.gif)
+
 I was gonna add more advanced features to this like matching specific
 vim instances but I lost interest because TIOCSTI requires root which makes
 it feel pretty ugly
